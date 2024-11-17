@@ -26,7 +26,7 @@ RUN wget -q --referer="https://www.microchip.com/en-us/tools-resources/develop/m
     https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/MPLABX-v${MPLABX_VERSION}-linux-installer.tar
 
 RUN echo "Download complete. Listing /tmp directory:" && \
-    ls -l /tmp && \
+    ls -l /tmp 
 
 RUN echo "Extracting tar file..." && \
     cd /tmp && \
