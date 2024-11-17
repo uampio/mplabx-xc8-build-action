@@ -18,7 +18,7 @@ docker build \
     --build-arg XC8_VERSION="${XC8_VERSION}" \
     . 
 
-cd .. 
+cd /github/workspace
 
 ls -la $(pwd)
 
