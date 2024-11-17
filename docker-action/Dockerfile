@@ -19,18 +19,26 @@ RUN apt-get update && \
     apt-get install -y make gcc && \
     rm -rf /var/lib/apt/lists/*
 
-# Download and install MPLAB X IDE
-RUN wget -q --referer="https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide" \
+    RUN echo "Downloading MPLAB X IDE..." && \
+    wget -q --referer="https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide" \
     -O /tmp/MPLABX-v${MPLABX_VERSION}-linux-installer.tar \
     https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/MPLABX-v${MPLABX_VERSION}-linux-installer.tar && \
+    echo "Download complete. Listing /tmp directory:" && \
     ls -l /tmp && \
+    echo "Extracting tar file..." && \
     cd /tmp && \
     tar -xf MPLABX-v${MPLABX_VERSION}-linux-installer.tar && \
+    echo "Extraction complete. Listing /tmp directory:" && \
     ls -l /tmp && \
+    echo "Moving installer script..." && \
     mv "MPLABX-v${MPLABX_VERSION}-linux-installer.sh" mplabx && \
+    echo "Setting execute permissions..." && \
     chmod +x mplabx && \
+    echo "Running installer..." && \
     ./mplabx -- --unattendedmodeui none --mode unattended --ipe 0 --collectInfo 0 --installdir /opt/mplabx --16bitmcu 0 --32bitmcu 1 --othermcu 0 && \
-    rm mplabx
+    echo "Installation complete. Cleaning up..." && \
+    rm mplabx && \
+    echo "MPLAB X IDE installation finished."
 
 # Download and install XC8 compiler
 RUN wget -nv -O /tmp/xc8 "https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/xc8-v${XC8_VERSION}-full-install-linux-x64-installer.run" && \
