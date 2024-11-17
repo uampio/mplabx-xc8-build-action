@@ -8,11 +8,14 @@ echo "Building project $1:$2"
 
 set -xe
 
+ls -la $PROJECT
+
+cat $PROJECT/nbproject/configurations.xml
+
 # Generate project makefiles
 echo "Generating makefiles"
-if ! /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh "$PROJECT@$CONFIGURATION" > makefile_generation.log 2>&1; then
+if ! /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh "$PROJECT@$CONFIGURATION"; then
     echo "Error: Failed to generate makefiles"
-    cat makefile_generation.log
     exit 1
 fi
 
