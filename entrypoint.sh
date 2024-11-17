@@ -16,6 +16,12 @@ docker build \
     -t docker-action \
     --build-arg MPLABX_VERSION="${MPLABX_VERSION}" \
     --build-arg XC8_VERSION="${XC8_VERSION}" \
-    . \
-    && cd .. \
-    && docker run -v "$(pwd):/github/workspace" --workdir /github/workspace docker-action "${PROJECT}" "${CONFIGURATION}"
+    . 
+
+cd .. 
+
+ls -la $(pwd)
+
+pwd
+
+docker run -v "$(pwd):/github/workspace" --workdir /github/workspace docker-action "${PROJECT}" "${CONFIGURATION}"
