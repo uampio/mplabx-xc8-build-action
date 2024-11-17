@@ -18,8 +18,6 @@ docker build \
     --build-arg XC8_VERSION="${XC8_VERSION}" \
     . 
 
-file $PROJECT/nbproject/configurations.xml
-
 echo "Running build container"
 
 docker run --rm -v "/github/workspace:/github/workspace" --workdir /github/workspace docker-action "${PROJECT}" "${CONFIGURATION}"

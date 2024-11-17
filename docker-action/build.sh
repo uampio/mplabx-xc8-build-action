@@ -8,12 +8,6 @@ echo "Building project $1:$2"
 
 set -xe
 
-cd $PROJECT
-
-ls -la
-
-file $PROJECT/nbproject/configurations.xml
-
 # Generate project makefiles
 echo "Generating makefiles"
 if ! /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh "$PROJECT@$CONFIGURATION"; then
