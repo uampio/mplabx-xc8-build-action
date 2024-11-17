@@ -22,4 +22,10 @@ cd /github/workspace
 
 ls -la $(pwd)
 
-docker run -v "/github/workspace:/github/workspace" --workdir /github/workspace docker-action "${PROJECT}" "${CONFIGURATION}"
+echo "Cat configurations.xml"
+
+cat $PROJECT/nbproject/configurations.xml
+
+echo "Running build container"
+
+docker run --rm -v "/github/workspace:/github/workspace" --workdir /github/workspace docker-action "${PROJECT}" "${CONFIGURATION}"

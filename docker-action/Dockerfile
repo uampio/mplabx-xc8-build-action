@@ -6,6 +6,9 @@ ARG XC8_VERSION=2.50
 # Set non-interactive mode for tzdata
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Mount the GitHub workspace
+VOLUME /github/workspace
+
 # Install necessary dependencies
 RUN apt-get update -qq && apt-get install -y -qq \
     wget \

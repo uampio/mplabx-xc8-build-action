@@ -8,11 +8,7 @@ echo "Building project $1:$2"
 
 set -xe
 
-pwd
-
-cd /github
-
-ls -la 
+cd $PROJECT
 
 cat $PROJECT/nbproject/configurations.xml
 
