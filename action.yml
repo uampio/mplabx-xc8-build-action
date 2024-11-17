@@ -19,11 +19,16 @@ inputs:
     description: Version of the XC8 compiler to use
     required: true
     default: "2.50"
+  dfp_packs:
+    description: DFP packs to install
+    required: false
+    default: "ATtiny_DFP=3.1.260"
 runs:
   using: docker
   image: Dockerfile
   args:
     - ${{ inputs.mplabx_version }}
     - ${{ inputs.xc8_version }}
+    - ${{ inputs.dfp_packs }}
     - ${{ inputs.project }}
     - ${{ inputs.configuration }}
