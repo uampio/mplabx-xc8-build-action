@@ -19,6 +19,12 @@ RUN apt-get update && \
     apt-get install -y make gcc && \
     rm -rf /var/lib/apt/lists/*
 
+    # Create /github/workspace directory
+RUN mkdir -p /github/workspace
+
+# Set the working directory
+WORKDIR /github/workspace
+
 RUN echo "Downloading MPLAB X IDE Link: https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/MPLABX-v${MPLABX_VERSION}-linux-installer.tar" 
     
 RUN wget -q --referer="https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide" \
