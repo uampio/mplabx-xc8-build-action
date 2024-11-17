@@ -10,7 +10,7 @@ set -xe
 
 pwd
 
-cd /
+cd /github
 
 ls -la 
 
