@@ -24,7 +24,7 @@ RUN apt-get update && \
     # Create /github/workspace directory
 RUN mkdir -p /github/workspace
 
-COPY /github/workspace /github/workspace
+COPY . /github/workspace
 
 RUN echo "Downloading MPLAB X IDE Link: https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/MPLABX-v${MPLABX_VERSION}-linux-installer.tar" 
     
