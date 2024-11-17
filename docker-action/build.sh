@@ -10,7 +10,9 @@ set -xe
 
 cd $PROJECT
 
-cat $PROJECT/nbproject/configurations.xml
+ls -la
+
+file $PROJECT/nbproject/configurations.xml
 
 # Generate project makefiles
 echo "Generating makefiles"
