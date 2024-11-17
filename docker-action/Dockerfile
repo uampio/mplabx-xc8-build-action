@@ -23,11 +23,13 @@ RUN apt-get update && \
 RUN wget -q --referer="https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide" \
     -O /tmp/MPLABX-v${MPLABX_VERSION}-linux-installer.tar \
     https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/MPLABX-v${MPLABX_VERSION}-linux-installer.tar && \
+    ls -l /tmp && \
     cd /tmp && \
     tar -xf MPLABX-v${MPLABX_VERSION}-linux-installer.tar && \
+    ls -l /tmp && \
     mv "MPLABX-v${MPLABX_VERSION}-linux-installer.sh" mplabx && \
     chmod +x mplabx && \
-    sudo ./mplabx -- --unattendedmodeui none --mode unattended --ipe 0 --collectInfo 0 --installdir /opt/mplabx --16bitmcu 0 --32bitmcu 1 --othermcu 0 && \
+    ./mplabx -- --unattendedmodeui none --mode unattended --ipe 0 --collectInfo 0 --installdir /opt/mplabx --16bitmcu 0 --32bitmcu 1 --othermcu 0 && \
     rm mplabx
 
 # Download and install XC8 compiler
