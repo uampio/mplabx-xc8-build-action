@@ -24,7 +24,7 @@ ls -la $(pwd)
 
 echo "Cat configurations.xml"
 
-cat $PROJECT/nbproject/configurations.xml
+file $PROJECT/nbproject/configurations.xml
 
 echo "Running build container"
 
