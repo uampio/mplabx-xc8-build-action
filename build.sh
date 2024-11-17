@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Arguments passed to the script
-PROJECT=${1:-firmware.X}
-CONFIGURATION=${2:-default}
+PROJECT=${4:-firmware.X}
+CONFIGURATION=${5:-default}
 
 echo "Building $PROJECT with configuration $CONFIGURATION"
 
