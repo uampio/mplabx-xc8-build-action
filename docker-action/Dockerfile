@@ -6,9 +6,6 @@ ARG XC8_VERSION=2.50
 # Set non-interactive mode for tzdata
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Mount the GitHub workspace
-VOLUME /github/workspace
-
 # Install necessary dependencies
 RUN apt-get update -qq && apt-get install -y -qq \
     wget \
@@ -24,6 +21,9 @@ RUN apt-get update && \
 
     # Create /github/workspace directory
 RUN mkdir -p /github/workspace
+
+# Mount the GitHub workspace
+VOLUME /github/workspace
 
 # Set the working directory
 WORKDIR /github/workspace
@@ -57,7 +57,6 @@ RUN wget -nv -O /tmp/xc8 "https://ww1.microchip.com/downloads/aemDocuments/docum
     chmod +x /tmp/xc8 && \
     sudo /tmp/xc8 --mode unattended --unattendedmodeui none --netservername localhost --LicenseType FreeMode --prefix "/opt/microchip/xc8/v${XC8_VERSION}" && \
     rm /tmp/xc8
-
 
 # Install DFPs
 RUN if [ -n "$DFP_PACKS" ]; then \

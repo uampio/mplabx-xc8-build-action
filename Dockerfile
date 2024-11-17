@@ -5,6 +5,6 @@ COPY entrypoint.sh /entrypoint.sh
 
 RUN ["chmod", "+x", "/entrypoint.sh"]
 
-#RUN apk add --update --no-cache docker
+RUN apk add --update --no-cache docker
 
 ENTRYPOINT ["/entrypoint.sh"]

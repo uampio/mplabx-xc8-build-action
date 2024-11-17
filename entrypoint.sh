@@ -18,12 +18,6 @@ docker build \
     --build-arg XC8_VERSION="${XC8_VERSION}" \
     . 
 
-cd /github/workspace
-
-ls -la $(pwd)
-
-echo "Cat configurations.xml"
-
 file $PROJECT/nbproject/configurations.xml
 
 echo "Running build container"
