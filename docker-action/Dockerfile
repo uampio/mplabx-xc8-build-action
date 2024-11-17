@@ -28,6 +28,9 @@ VOLUME /github/workspace
 # Set the working directory
 WORKDIR /github/workspace
 
+# Copy the repository files into /github/workspace
+COPY . /github/workspace
+
 RUN echo "Downloading MPLAB X IDE Link: https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/MPLABX-v${MPLABX_VERSION}-linux-installer.tar" 
     
 RUN wget -q --referer="https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide" \
