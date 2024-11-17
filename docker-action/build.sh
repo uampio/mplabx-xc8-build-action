@@ -10,6 +10,8 @@ set -xe
 
 pwd
 
+cd /
+
 ls -la 
 
 cat $PROJECT/nbproject/configurations.xml
