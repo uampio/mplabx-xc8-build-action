@@ -3,8 +3,9 @@ FROM ubuntu:24.04
 ARG MPLABX_VERSION=6.20
 ARG XC8_VERSION=2.50
 
-# Install the dependencies
-# See https://microchipdeveloper.com/install:mplabx-lin64
+# Set non-interactive mode for tzdata
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Install necessary dependencies
 RUN apt-get update -qq && apt-get install -y -qq \
     wget \
