@@ -8,7 +8,9 @@ echo "Building project $1:$2"
 
 set -xe
 
-ls -la $PROJECT
+pwd
+
+ls -la 
 
 cat $PROJECT/nbproject/configurations.xml
 
