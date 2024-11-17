@@ -38,7 +38,7 @@ RUN echo "Extracting tar file..." && \
     echo "Setting execute permissions..." && \
     chmod +x mplabx && \
     echo "Running installer..." && \
-    ./mplabx -- --unattendedmodeui none --mode unattended --ipe 0 --collectInfo 0 --installdir /opt/mplabx --16bitmcu 0 --32bitmcu 1 --othermcu 0 && \
+    sudo ./mplabx -- --unattendedmodeui none --mode unattended --ipe 0 --collectInfo 0 --installdir /opt/mplabx --16bitmcu 0 --32bitmcu 1 --othermcu 0 && \
     echo "Installation complete. Cleaning up..." && \
     rm mplabx && \
     echo "MPLAB X IDE installation finished."
