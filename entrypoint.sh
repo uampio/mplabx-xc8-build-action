@@ -22,6 +22,4 @@ cd /github/workspace
 
 ls -la $(pwd)
 
-pwd
-
-docker run -v "$(pwd):/github/workspace" --workdir /github/workspace docker-action "${PROJECT}" "${CONFIGURATION}"
+docker run -v "/github/workspace:/github/workspace" --workdir /github/workspace docker-action "${PROJECT}" "${CONFIGURATION}"
