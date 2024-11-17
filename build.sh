@@ -8,6 +8,11 @@ echo "Building $PROJECT with configuration $CONFIGURATION"
 
 set -xe
 
+# Print the current working directory and its contents
+echo "Current working directory: $(pwd)"
+echo "Directory contents:"
+ls -la
+
 # Generate project makefiles
 echo "Generating makefiles"
 if ! /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh "$PROJECT@$CONFIGURATION"; then
