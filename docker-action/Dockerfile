@@ -19,13 +19,16 @@ RUN apt-get update && \
     apt-get install -y make gcc && \
     rm -rf /var/lib/apt/lists/*
 
-    RUN echo "Downloading MPLAB X IDE..." && \
-    wget -q --referer="https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide" \
+RUN echo "Downloading MPLAB X IDE Link: https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/MPLABX-v${MPLABX_VERSION}-linux-installer.tar" 
+    
+RUN wget -q --referer="https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide" \
     -O /tmp/MPLABX-v${MPLABX_VERSION}-linux-installer.tar \
-    https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/MPLABX-v${MPLABX_VERSION}-linux-installer.tar && \
-    echo "Download complete. Listing /tmp directory:" && \
+    https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/MPLABX-v${MPLABX_VERSION}-linux-installer.tar
+
+RUN echo "Download complete. Listing /tmp directory:" && \
     ls -l /tmp && \
-    echo "Extracting tar file..." && \
+
+RUN echo "Extracting tar file..." && \
     cd /tmp && \
     tar -xf MPLABX-v${MPLABX_VERSION}-linux-installer.tar && \
     echo "Extraction complete. Listing /tmp directory:" && \
