@@ -4,7 +4,7 @@
 PROJECT=${1:-firmware.X}
 CONFIGURATION=${2:-default}
 
-echo "Building $PROJECT with configuration $CONFIGURATION"
+echo "Building project $1:$2"
 
 set -xe
 

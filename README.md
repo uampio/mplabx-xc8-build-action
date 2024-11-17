@@ -46,8 +46,11 @@ jobs:
         with:
           project: firmware.X
           configuration: default
+          mplabx_version: "6.20"
+          xc8_version: "2.50"
 ```
 
 # Acknowledgements
 
 Inspired by <https://github.com/velocitek/ghactions-mplabx>.
+Forked from: <https://github.com/jeandeaual/mplabx-xc8-build-action>
