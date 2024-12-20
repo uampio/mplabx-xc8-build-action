@@ -2,7 +2,7 @@
 FROM ubuntu:24.04
 
 ARG MPLABX_VERSION=6.20
-ARG XC8_VERSION=2.50
+ARG XC8_VERSION=3.00
 ARG DFP_PACKS=""
 
 # Set non-interactive mode for tzdata
