@@ -27,7 +27,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Install java
-RUN apt update && apt install default-jre
+RUN apt update && apt install -y default-jre
 
 # Copy build script
 COPY build.sh /build.sh
