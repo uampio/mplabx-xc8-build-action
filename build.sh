@@ -44,25 +44,15 @@ export JAVA_OPTIONS="-Xmx4g"
 # Install DFPs
 if [ -n "$DFP_PACKS" ]; then
     echo "Installing DFPs: $DFP_PACKS"
+    sudo chmod +x /opt/mplabx/mplab_platform/bin/packmanagercli.sh
     
     IFS=',' read -ra PACK_ARRAY <<< "$DFP_PACKS"
     for pack in "${PACK_ARRAY[@]}"; do
         pack_name=$(echo "$pack" | cut -d '=' -f 1)
         pack_version=$(echo "$pack" | cut -d '=' -f 2)
-        
-        # Construct the URL for downloading the pack (Example: https://packs.download.microchip.com/Microchip.ATtiny_DFP.3.2.268.atpack)
-        pack_url="https://packs.download.microchip.com/Microchip.$pack_name.$pack_version.atpack"
-        
-        # Download the pack
-        echo "Downloading package: $pack_name (Version: $pack_version) from $pack_url"
-        wget -q -O "/tmp/Microchip.$pack_name.$pack_version.atpack" "$pack_url"
-        
-        # Install the DFP pack
         echo "Installing package: $pack_name (Version: $pack_version)"
-        output=$(sudo /opt/mplabx/mplab_platform/bin/packmanagercli.sh --install-from-disk "/tmp/Microchip.$pack_name.$pack_version.atpack" --location "/tmp" 2>&1)
+        output=$(sudo /opt/mplabx/mplab_platform/bin/packmanagercli.sh --install-pack "$pack_name" --version "$pack_version" --vendor Microchip 2>&1)
         echo "$output"
-        # Clean up downloaded pack file
-        rm "/tmp/$pack_name.$pack_version.atpack"
     done
 fi
 
