@@ -15,7 +15,7 @@ inputs:
   dfp_packs:
     description: DFP packs to install
     required: false
-    default: "ATtiny_DFP=3.1.260"
+    default: "ATtiny_DFP=3.2.268"
   project:
     description: Project folder location
     required: true
