@@ -37,6 +37,8 @@ sudo /tmp/xc8 --mode unattended --unattendedmodeui none --netservername localhos
 
 rm /tmp/xc8
 
+echo "MPLABX and XC8 installation complete."
+
 # Install DFPs
 if [ -n "$DFP_PACKS" ]; then
     echo "Installing DFPs: $DFP_PACKS"
@@ -51,7 +53,19 @@ if [ -n "$DFP_PACKS" ]; then
     done
 fi
 
-echo "MPLABX and XC8 installation complete."
+echo "Checking for missing device packs..."
+if /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh /github/workspace@default 2>&1 | grep -q "Device pack missing"; then
+    echo "Device pack is missing. Attempting to install required pack..."
+    sudo /opt/mplabx/mplab_platform/bin/packmanagercli.sh --update-db
+    sudo /opt/mplabx/mplab_platform/bin/packmanagercli.sh --install-all > /dev/null 2>&1
+fi
+
+if /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh /github/workspace@default 2>&1 | grep -q "Device pack missing"; then
+    echo "Required package not installed"
+    exit 1
+fi
+
+echo "DFP installation check complete."
 
 cd ~
 
