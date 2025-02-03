@@ -68,7 +68,7 @@ if [ -n "$DFP_PACKS" ]; then
         output=$(sudo /opt/mplabx/mplab_platform/bin/packmanagercli.sh --install-from-disk "/tmp/Microchip.$pack_name.$pack_version.atpack" --verbose 2>&1)
         echo "$output"
         # Clean up downloaded pack file
-        rm "/tmp/$pack_name.$pack_version.atpack"
+        rm "/tmp/Microchip.$pack_name.$pack_version.atpack"
     done
 fi
 
