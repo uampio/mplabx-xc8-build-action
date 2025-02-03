@@ -27,8 +27,8 @@ runs:
   using: docker
   image: Dockerfile
   args:
-    - "--build-arg MPLABX_VERSION=${{ inputs.mplabx_version }}"
-    - "--build-arg XC8_VERSION=${{ inputs.xc8_version }}"
-    - "--build-arg DFP_PACKS=${{ inputs.dfp_packs }}"
-    - "--build-arg PROJECT=${{ inputs.project }}"
-    - "--build-arg CONFIGURATION=${{ inputs.configuration }}"
+    - "--mplabx_version=${{ inputs.mplabx_version }}"
+    - "--xc8_version=${{ inputs.xc8_version }}"
+    - "--dfp_packs=${{ inputs.dfp_packs }}"
+    - "--project=${{ inputs.project }}"
+    - "--configuration=${{ inputs.configuration }}"
