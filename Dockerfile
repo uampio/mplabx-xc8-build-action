@@ -27,7 +27,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Install java
-RUN apt update && apt install openjdk-11-jd
+RUN apt update && apt install default-jre
 
 # Copy build script
 COPY build.sh /build.sh
