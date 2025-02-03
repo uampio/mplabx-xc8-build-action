@@ -53,6 +53,10 @@ fi
 
 echo "MPLABX and XC8 installation complete."
 
+cd ~
+
+echo pwd
+
 # Generate project makefiles
 echo "Generating makefiles"
 if ! /opt/mplabx/mplab_platform/bin/prjMakefilesGenerator.sh "$PROJECT@$CONFIGURATION"; then
