@@ -41,6 +41,9 @@ rm /tmp/xc8
 
 echo "MPLABX and XC8 installation complete."
 
+output=$(sudo /opt/mplabx/mplab_platform/bin/packmanagercli.sh --list-packs --verbose 2>&1)
+echo "$output"
+
 # Install DFPs
 if [ -n "$DFP_PACKS" ]; then
     echo "Installing DFPs: $DFP_PACKS"
@@ -51,7 +54,7 @@ if [ -n "$DFP_PACKS" ]; then
         pack_name=$(echo "$pack" | cut -d '=' -f 1)
         pack_version=$(echo "$pack" | cut -d '=' -f 2)
         echo "Installing package: $pack_name (Version: $pack_version)"
-        output=$(sudo /opt/mplabx/mplab_platform/bin/packmanagercli.sh --install-pack "$pack_name" --version "$pack_version" --vendor Microchip 2>&1)
+        output=$(sudo /opt/mplabx/mplab_platform/bin/packmanagercli.sh --install-pack "$pack_name" --version "$pack_version" --vendor Microchip --verbose 2>&1)
         echo "$output"
     done
 fi
