@@ -55,7 +55,7 @@ echo "MPLABX and XC8 installation complete."
 
 cd ~
 
-echo pwd
+pwd
 
 # Generate project makefiles
 echo "Generating makefiles"
