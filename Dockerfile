@@ -1,33 +1,21 @@
 
 FROM ubuntu:24.04
 
-# Define build arguments
-ARG mplabx_version
-ARG xc8_version
-ARG dfp_packs
-ARG project
-ARG configuration
-
-RUN echo "MPLABX Version $mplabx_version"
-RUN echo "XC8 Version $xc8_version"
-RUN echo "DFP Packs: $dfp_packs"
-RUN echo "Project: $project"
-RUN echo "Configuration: $configuration"
-
 # Set environment variables from build arguments
-ENV MPLABX_VERSION=${mplabx_version}
-ENV XC8_VERSION=${xc8_version}
-ENV DFP_PACKS=${dfp_packs}
-ENV PROJECT=${project}
-ENV CONFIGURATION=${configuration}
+ENV MPLABX_VERSION
+ENV XC8_VERSION
+ENV DFP_PACK
+ENV PROJECT
+ENV CONFIGURATION
+
+RUN echo "MPLABX Version $MPLABX_VERSION"
+RUN echo "XC8 Version $XC8_VERSION"
+RUN echo "DFP Packs: $DFP_PACK"
+RUN echo "Project: $PROJECT"
+RUN echo "Configuration: $CONFIGURATION"
 
 # Set non-interactive mode for tzdata
 ENV DEBIAN_FRONTEND=noninteractive
-
-# Print all environment variables for debugging
-RUN echo "===== Environment Variables =====" && \
-    printenv && \
-    echo "================================="
 
 # Install necessary dependencies
 RUN apt-get update -qq && apt-get install -y -qq \
