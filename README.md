@@ -2,16 +2,16 @@
 
 This action will build a MPLAB X / XC8 project.
 
-It runs on Linux Ubuntu 20.04 and uses:
+It runs on Linux Ubuntu latest and uses:
 
-* [MPLAB X](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide) v5.45
-* [XC8](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers) v1.34
+* [MPLAB X](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide)
+* [XC8](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers)
 
 ## Inputs
 
 ### `project`
 
-**Required** The path of the project to build (relative to the repository). For example: `firmware.X`.
+**Required** The path of the project to build (relative to the repository). For example: `/github/workspace`.
 
 ### `configuration`
 
@@ -27,27 +27,28 @@ Add the following `.github/workflows/build.yml` file to your project:
 
 ```yaml
 name: Build
+
 on:
-  push:
-    branches:
-      - master
   pull_request:
-    branches:
-      - master
+    branches: [ "main", "dev" ]
+
 jobs:
   build:
     name: Build the project
     runs-on: ubuntu-latest
     steps:
-      - name: Download the source code
-        uses: actions/checkout@v1
-      - name: Build
-        uses: jeandeaual/mplabx-xc8-build-action@v0.2.0
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: UAMP Build with MPLAB X and XC8
+        uses: uampio/mplabx-xc8-build-action@v1.0.46
         with:
-          project: firmware.X
+          project: /github/workspace
+          dfp_packs: "ATtiny_DFP=3.2.268"
           configuration: default
           mplabx_version: "6.20"
-          xc8_version: "2.50"
+          xc8_version: "3.00"
+
 ```
 
 # Acknowledgements
