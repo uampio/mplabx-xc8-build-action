@@ -10,6 +10,8 @@ echo "CONFIGURATION: $CONFIGURATION"
 # PROJECT=${4:-firmware.X}
 # CONFIGURATION=${5:-default}
 
+export NODE_OPTIONS=--max_old_space_size=4096
+
 echo "Building $PROJECT with configuration $CONFIGURATION"
 
 set -xe
