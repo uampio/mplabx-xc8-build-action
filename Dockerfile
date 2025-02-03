@@ -38,7 +38,6 @@ RUN wget -nv -O /tmp/xc8 "https://ww1.microchip.com/downloads/aemDocuments/docum
     sudo /tmp/xc8 --mode unattended --unattendedmodeui none --netservername localhost --LicenseType FreeMode --prefix "/opt/microchip/xc8/v${XC8_VERSION}" && \
     rm /tmp/xc8
 
-
 # Install DFPs
 RUN if [ -n "$DFP_PACKS" ]; then \
     echo "Installing DFPs: $DFP_PACKS"; \
@@ -46,6 +45,7 @@ RUN if [ -n "$DFP_PACKS" ]; then \
     for pack in $(echo "$DFP_PACKS" | tr "," "\n"); do \
         pack_name=$(echo "$pack" | cut -d '=' -f 1); \
         pack_version=$(echo "$pack" | cut -d '=' -f 2); \
+        echo "Installing package: $pack_name (Version: $pack_version)"; \
         sudo /opt/mplabx/mplab_platform/bin/packmanagercli.sh --install-pack "$pack_name" --version "$pack_version" > /dev/null 2>&1; \
     done; \
 fi
