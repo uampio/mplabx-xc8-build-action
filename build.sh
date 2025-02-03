@@ -39,6 +39,8 @@ rm /tmp/xc8
 
 echo "MPLABX and XC8 installation complete."
 
+export JAVA_OPTIONS="-Xmx4g"
+
 # Install DFPs
 if [ -n "$DFP_PACKS" ]; then
     echo "Installing DFPs: $DFP_PACKS"
