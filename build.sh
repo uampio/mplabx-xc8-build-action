@@ -47,7 +47,7 @@ echo "--Free memory available--"
 
 rm -rf ~/.mchp_packs/cache/
 
-output=$(sudo java -Xmx4096m -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -jar /opt/mplabx/mplab_platform/bin/packmanagercli.sh --list-packs --verbose 2>&1)
+output=$(sudo /opt/mplabx/mplab_platform/bin/packmanagercli.sh --list-packs --verbose 2>&1)
 echo "$output"
 
 # Install DFPs
