@@ -7,8 +7,8 @@ echo "PROJECT: $PROJECT"
 echo "CONFIGURATION: $CONFIGURATION"
 
 # Arguments passed to the script
-PROJECT=${4:-firmware.X}
-CONFIGURATION=${5:-default}
+# PROJECT=${4:-firmware.X}
+# CONFIGURATION=${5:-default}
 
 echo "Building $PROJECT with configuration $CONFIGURATION"
 
