@@ -10,8 +10,6 @@ echo "CONFIGURATION: $CONFIGURATION"
 # PROJECT=${4:-firmware.X}
 # CONFIGURATION=${5:-default}
 
-export NODE_OPTIONS=--max_old_space_size=4096
-
 echo "Building $PROJECT with configuration $CONFIGURATION"
 
 set -xe
@@ -47,7 +45,7 @@ echo "--Free memory available--"
 free -h
 echo "--Free memory available--"
 
-output=$(sudo java -Xmx4096m -jar /opt/mplabx/mplab_platform/bin/packmanagercli.sh --list-packs --verbose 2>&1)
+output=$(sudo /opt/mplabx/mplab_platform/bin/packmanagercli.sh --list-packs --verbose 2>&1)
 echo "$output"
 
 # Install DFPs
