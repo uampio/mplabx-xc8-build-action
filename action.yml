@@ -4,13 +4,6 @@ branding:
   icon: package
   color: gray-dark
 inputs:
-  project:
-    description: Project folder location
-    required: true
-  configuration:
-    description: Configuration to build
-    required: true
-    default: default
   mplabx_version:
     description: Version of MPLAB X to use
     required: true
@@ -23,13 +16,20 @@ inputs:
     description: DFP packs to install
     required: false
     default: "ATtiny_DFP=3.1.260"
+  project:
+    description: Project folder location
+    required: true
+  configuration:
+    description: Configuration to build
+    required: true
+    default: default
 runs:
   using: docker
   image: Dockerfile
   args:
-    - "--MPLABX_VERSION=${{ inputs.mplabx_version }}"
-    - "--XC8_VERSION=${{ inputs.xc8_version }}"
-    - "--DFP_PACKS=${{ inputs.dfp_packs }}"
-    - "--PROJECT=${{ inputs.project }}"
-    - "--CONFIGURATION=${{ inputs.configuration }}"
+    - ${{ inputs.mplabx_version }}
+    - ${{ inputs.xc8_version }}
+    - ${{ inputs.dfp_packs }}
+    - ${{ inputs.project }}
+    - ${{ inputs.configuration }}
 
