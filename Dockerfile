@@ -2,17 +2,13 @@
 FROM ubuntu:24.04
 
 # Set environment variables from build arguments
-ARG MPLABX_VERSION
-ARG XC8_VERSION
-ARG DFP_PACKS
-ARG PROJECT
-ARG CONFIGURATION
+ARG MPLABX_VERSION=6.20
+ARG XC8_VERSION=3.00
+ARG DFP_PACKS=""
 
 RUN echo "MPLABX Version $MPLABX_VERSION"
 RUN echo "XC8 Version $XC8_VERSION"
 RUN echo "DFP Packs: $DFP_PACKS"
-RUN echo "Project: $PROJECT"
-RUN echo "Configuration: $CONFIGURATION"
 
 # Set non-interactive mode for tzdata
 ENV DEBIAN_FRONTEND=noninteractive
