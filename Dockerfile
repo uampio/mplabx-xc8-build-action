@@ -8,6 +8,12 @@ ARG dfp_packs
 ARG project
 ARG configuration
 
+RUN echo "MPLABX Version $mplabx_version"
+RUN echo "XC8 Version $xc8_version"
+RUN echo "DFP Packs: $dfp_packs"
+RUN echo "Project: $project"
+RUN echo "Configuration: $configuration"
+
 # Set environment variables from build arguments
 ENV MPLABX_VERSION=${mplabx_version}
 ENV XC8_VERSION=${xc8_version}
