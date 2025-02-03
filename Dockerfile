@@ -1,5 +1,5 @@
 
-FROM ubuntu:24.04
+FROM ubuntu:latest
 
 # Set environment variables from build arguments
 #ENV MPLABX_VERSION=6.20
