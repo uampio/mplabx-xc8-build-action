@@ -29,7 +29,7 @@ chmod +x mplabx
 
 sudo ./mplabx -- --unattendedmodeui none --mode unattended --ipe 0 --collectInfo 0 --installdir /opt/mplabx --16bitmcu 0 --32bitmcu 1 --othermcu 0
 
-rm mplabx
+rm -rf mplabx
 
 # Download and install XC8 compiler
 wget -nv -O /tmp/xc8 "https://ww1.microchip.com/downloads/aemDocuments/documents/DEV/ProductDocuments/SoftwareTools/xc8-v${XC8_VERSION}-full-install-linux-x64-installer.run"
@@ -37,13 +37,17 @@ chmod +x /tmp/xc8
 
 sudo /tmp/xc8 --mode unattended --unattendedmodeui none --netservername localhost --LicenseType FreeMode --prefix "/opt/microchip/xc8/v${XC8_VERSION}"
 
-rm /tmp/xc8
+rm -rf /tmp/xc8
 
 echo "MPLABX and XC8 installation complete."
 
 sudo chmod +x /opt/mplabx/mplab_platform/bin/packmanagercli.sh
 
-output=$(sudo /opt/mplabx/mplab_platform/bin/packmanagercli.sh --list-packs --verbose 2>&1)
+echo "--Free memory available--"
+free -h
+echo "--Free memory available--"
+
+output=$(sudo java -Xmx4096m -jar /opt/mplabx/mplab_platform/bin/packmanagercli.sh --list-packs --verbose 2>&1)
 echo "$output"
 
 # Install DFPs
