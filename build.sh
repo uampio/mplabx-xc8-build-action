@@ -1,5 +1,11 @@
 #!/bin/bash
 
+echo "MPLABX_VERSION: $MPLABX_VERSION"
+echo "XC8_VERSION: $XC8_VERSION"
+echo "DFP_PACKS: $DFP_PACKS"
+echo "PROJECT: $PROJECT"
+echo "CONFIGURATION: $CONFIGURATION"
+
 # Arguments passed to the script
 PROJECT=${4:-firmware.X}
 CONFIGURATION=${5:-default}
