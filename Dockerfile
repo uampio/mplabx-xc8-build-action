@@ -4,13 +4,13 @@ FROM ubuntu:24.04
 # Set environment variables from build arguments
 ENV MPLABX_VERSION
 ENV XC8_VERSION
-ENV DFP_PACK
+ENV DFP_PACKS
 ENV PROJECT
 ENV CONFIGURATION
 
 RUN echo "MPLABX Version $MPLABX_VERSION"
 RUN echo "XC8 Version $XC8_VERSION"
-RUN echo "DFP Packs: $DFP_PACK"
+RUN echo "DFP Packs: $DFP_PACKS"
 RUN echo "Project: $PROJECT"
 RUN echo "Configuration: $CONFIGURATION"
 
