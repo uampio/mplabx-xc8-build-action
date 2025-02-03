@@ -32,5 +32,5 @@ runs:
     DFP_PACKS: ${{ inputs.dfp_packs }}
     PROJECT: ${{ inputs.project }}
     CONFIGURATION: ${{ inputs.configuration }}
-    JAVA_OPTS: "-Xmx4G"
+    JAVA_TOOL_OPTIONS: "-Xmx4g -XX:+UseG1GC"
 
