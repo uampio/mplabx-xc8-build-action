@@ -2,9 +2,9 @@
 FROM ubuntu:24.04
 
 # Set environment variables from build arguments
-ARG MPLABX_VERSION=6.20
-ARG XC8_VERSION=3.00
-ARG DFP_PACKS=""
+ENV MPLABX_VERSION=6.20
+ENV XC8_VERSION=3.00
+ENV DFP_PACKS=""
 
 RUN echo "MPLABX Version $MPLABX_VERSION"
 RUN echo "XC8 Version $XC8_VERSION"
