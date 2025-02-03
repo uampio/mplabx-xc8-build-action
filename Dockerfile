@@ -26,7 +26,8 @@ RUN apt-get update && \
     apt-get install -y make gcc && \
     rm -rf /var/lib/apt/lists/*
 
-
+# Install java
+RUN apt update && apt install openjdk-11-jd
 
 # Copy build script
 COPY build.sh /build.sh
