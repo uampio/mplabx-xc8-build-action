@@ -2,18 +2,18 @@
 FROM ubuntu:24.04
 
 # Define build arguments
-ARG MPLABX_VERSION
-ARG XC8_VERSION
-ARG DFP_PACKS
-ARG PROJECT
-ARG CONFIGURATION
+ARG mplabx_version
+ARG xc8_version
+ARG dfp_packs
+ARG project
+ARG configuration
 
 # Set environment variables from build arguments
-ENV MPLABX_VERSION=${MPLABX_VERSION}
-ENV XC8_VERSION=${XC8_VERSION}
-ENV DFP_PACKS=${DFP_PACKS}
-ENV PROJECT=${PROJECT}
-ENV CONFIGURATION=${CONFIGURATION}
+ENV MPLABX_VERSION=${mplabx_version}
+ENV XC8_VERSION=${xc8_version}
+ENV DFP_PACKS=${dfp_packs}
+ENV PROJECT=${project}
+ENV CONFIGURATION=${configuration}
 
 # Set non-interactive mode for tzdata
 ENV DEBIAN_FRONTEND=noninteractive
