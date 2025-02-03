@@ -47,6 +47,8 @@ echo "--Free memory available--"
 
 rm -rf ~/.mchp_packs/cache/
 
+sudo sync && sudo echo 3 | sudo tee /proc/sys/vm/drop_caches
+
 output=$(sudo /opt/mplabx/mplab_platform/bin/packmanagercli.sh --list-packs --verbose 2>&1)
 echo "$output"
 
