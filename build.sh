@@ -41,13 +41,14 @@ rm /tmp/xc8
 
 echo "MPLABX and XC8 installation complete."
 
+sudo chmod +x /opt/mplabx/mplab_platform/bin/packmanagercli.sh
+
 output=$(sudo /opt/mplabx/mplab_platform/bin/packmanagercli.sh --list-packs --verbose 2>&1)
 echo "$output"
 
 # Install DFPs
 if [ -n "$DFP_PACKS" ]; then
     echo "Installing DFPs: $DFP_PACKS"
-    sudo chmod +x /opt/mplabx/mplab_platform/bin/packmanagercli.sh
     
     IFS=',' read -ra PACK_ARRAY <<< "$DFP_PACKS"
     for pack in "${PACK_ARRAY[@]}"; do
