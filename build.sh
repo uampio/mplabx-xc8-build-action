@@ -59,8 +59,8 @@ if [ -n "$DFP_PACKS" ]; then
         
         # Install the DFP pack
         echo "Installing package: $pack_name (Version: $pack_version)"
-        sudo /opt/mplabx/mplab_platform/bin/packmanagercli.sh --install-pack "/tmp/Microchip,$pack_name.$pack_version.atpack"
-        
+        output=$(sudo /opt/mplabx/mplab_platform/bin/packmanagercli.sh --install-from-disk "/tmp/Microchip.$pack_name.$pack_version.atpack" --location "/tmp" 2>&1)
+        echo "$output"
         # Clean up downloaded pack file
         rm "/tmp/$pack_name.$pack_version.atpack"
     done
