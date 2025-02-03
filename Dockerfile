@@ -10,6 +10,11 @@ ENV CONFIGURATION="default"
 # Set non-interactive mode for tzdata
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Print all environment variables for debugging
+RUN echo "===== Environment Variables =====" && \
+    printenv && \
+    echo "================================="
+
 # Install necessary dependencies
 RUN apt-get update -qq && apt-get install -y -qq \
     wget \
